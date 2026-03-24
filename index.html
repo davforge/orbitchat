@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbit Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">By: davforge</p>
+          <h1>Orbit Chat</h1>
+        </div>
+        <div class="status-group">
+          <div class="status" id="status">Ready</div>
+          <div class="status key-status" id="keyStatus">Key: Not tested</div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="field">
+          <label for="apiKey">OpenRouter API Key</label>
+          <div class="inline">
+            <input
+              id="apiKey"
+              type="password"
+              placeholder="sk-or-..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="toggleKey" class="ghost" type="button">Show</button>
+            <button id="saveKey" class="ghost" type="button">Save & Test</button>
+          </div>
+          <p class="hint">Stored locally only if you press Save.</p>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="model">Model</label>
+            <input id="model" type="text" value="openrouter/free" />
+          </div>
+          <div class="field">
+            <label for="temperature">Temperature <span id="tempValue">0.7</span></label>
+            <input id="temperature" type="range" min="0" max="1.5" step="0.1" value="0.7" />
+          </div>
+          <div class="field">
+            <label for="maxTokens">Max Tokens</label>
+            <input id="maxTokens" type="number" min="64" max="4000" step="64" value="800" />
+          </div>
+        </div>
+
+        <details class="field">
+          <summary>System Prompt</summary>
+          <textarea id="systemPrompt" rows="3" placeholder="Set the assistant persona or rules..."></textarea>
+        </details>
+      </section>
+
+      <section class="chat">
+        <div id="messages" class="messages"></div>
+      </section>
+
+      <section class="composer">
+        <textarea
+          id="userInput"
+          rows="2"
+          placeholder="Ask anything..."
+          spellcheck="true"
+        ></textarea>
+        <div class="composer-actions">
+          <button id="clearChat" class="ghost" type="button">Clear</button>
+          <button id="send" class="primary" type="button">Send</button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Tip: Shift + Enter for a new line. OpenRouter requests run in your browser.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
