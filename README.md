@@ -1,3 +1,3 @@
 # OrbitChat
 
-Domain: https://orbitchat.lol
+OpenRouter API key client.
